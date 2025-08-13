@@ -15,7 +15,12 @@ const port = process.env.PORT || 4000
 
 // middleware
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: "https://food-app-frontend-20n8.onrender.com",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
+
 
 // db connection
 connectDB();
@@ -37,6 +42,3 @@ app.listen(port,()=>{
     console.log(`Server Started on http://localhost:${port}`)
     
 })
-
-//mongodb+srv://ngothanh2011:<password>@greatstack.qopek3c.mongodb.net/?
-//retryWrites=true&w=majority&appName=GreatStack
